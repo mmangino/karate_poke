@@ -12,7 +12,13 @@ require 'mongrel_cluster/recipes'
 # form the root of the application path.
 
 set :application, "karate_poke"
-set :repository, "svn+ssh://dev.elevatedrails.com/var/svn/repo/karate_poke/trunk"
+set :scm, "git"
+set :git_shallow_clone, 1
+set :git_enable_submodules, 1
+set :branch, "master"
+set :scm_verbose, true
+set :deploy_via, :remote_cache
+set :repository, "git@github.com:mmangino/karate_poke.git"
 
 # =============================================================================
 # ROLES
