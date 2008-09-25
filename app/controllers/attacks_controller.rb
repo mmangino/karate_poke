@@ -21,7 +21,7 @@ class AttacksController < ApplicationController
       # START:CALL_UPDATE_PROFILE
       for id in params[:ids]
         attack = current_user.attack(User.for(id),attack.move)
-        update_profile(attack.defending_user)
+        AttackPublisher.deliver_profile_update(attack.defending_user) rescue nil
         
         if attack.hit?
           hits << attack
@@ -30,6 +30,7 @@ class AttacksController < ApplicationController
         end
       end
       # END:CALL_UPDATE_PROFILE
+      AttackPublisher.deliver_profile_update(current_user) rescue nil
       AttackPublisher.deliver_attack_feed(attack) rescue nil    
       flash[:notice] = "Your attack resulted in #{hits.size} " +
         (hits.size==1 ? "hit" : "hits") +

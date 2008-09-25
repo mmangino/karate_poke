@@ -4,6 +4,6 @@ port: "1830"
 environment: production
 pid_file: log/mongrel.pid
 servers: 4
-user: elevateddeploy
-group: elevateddeploy
+user: mmangino
+group: mmangino
 num_processors: 5
