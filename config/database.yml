@@ -14,6 +14,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  timeout: 5000
+  adapter: mysql
+  database: karate_poke_production
+  username: karate_poke
+  password: b00ks4l3s
+  host: mingus.elevatedrails.com
+
