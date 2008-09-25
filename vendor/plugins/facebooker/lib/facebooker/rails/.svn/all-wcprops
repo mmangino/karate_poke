@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails
+END
+publisher.rb
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/publisher.rb
+END
+facebook_session_handling.rb
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/facebook_session_handling.rb
+END
+test_helpers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/test_helpers.rb
+END
+facebook_form_builder.rb
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/facebook_form_builder.rb
+END
+helpers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/helpers.rb
+END
+controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/controller.rb
+END
+facebook_asset_path.rb
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/facebook_asset_path.rb
+END
+facebook_url_rewriting.rb
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/facebook_url_rewriting.rb
+END
+facebook_request_fix.rb
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/facebook_request_fix.rb
+END
+routing.rb
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/routing.rb
+END
+utilities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/utilities.rb
+END
+facebook_pretty_errors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/facebook_pretty_errors.rb
+END
+profile_publisher_extensions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/rails/profile_publisher_extensions.rb
+END

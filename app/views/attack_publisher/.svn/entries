@@ -1,0 +1,52 @@
+8
+
+dir
+42225
+https://svn.pragprog.com/Bookshelf/titles/MMFACER/Book/code/chapter8/karate_poke/app/views/attack_publisher
+https://svn.pragprog.com/Bookshelf
+
+
+
+2008-07-25T14:57:52.694189Z
+39647
+mike.mangino
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+82263e25-b5eb-0310-b4ec-9460fbaf34b7
+
+_profile.erb
+file
+
+
+
+
+2008-07-25T14:58:18.000000Z
+8e3e4266b7c73ff71539abf79f84c5ba
+2008-07-25T14:57:52.694189Z
+39647
+mike.mangino
+
+_profile_narrow.erb
+file
+
+
+
+
+2008-07-25T14:58:18.000000Z
+fc343ab1a468f8eb9edf4f5b65075fcc
+2008-07-25T14:57:52.694189Z
+39647
+mike.mangino
+

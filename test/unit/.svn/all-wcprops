@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/test/unit
+END
+user_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/test/unit/user_test.rb
+END
+comment_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/test/unit/comment_test.rb
+END
+belt_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Bookshelf/!svn/ver/40394/titles/MMFACER/Book/code/chapter8/karate_poke/test/unit/belt_test.rb
+END
+move_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/test/unit/move_test.rb
+END
+attack_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/Bookshelf/!svn/ver/39020/titles/MMFACER/Book/code/chapter8/karate_poke/test/unit/attack_test.rb
+END

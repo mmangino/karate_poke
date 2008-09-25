@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional
+END
+profile_publisher_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional/profile_publisher_controller_test.rb
+END
+dojos_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional/dojos_controller_test.rb
+END
+leaders_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional/leaders_controller_test.rb
+END
+marketing_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional/marketing_controller_test.rb
+END
+users_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional/users_controller_test.rb
+END
+comments_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional/comments_controller_test.rb
+END
+invitations_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional/invitations_controller_test.rb
+END
+attacks_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/test/functional/attacks_controller_test.rb
+END

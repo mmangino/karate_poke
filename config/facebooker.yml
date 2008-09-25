@@ -1,0 +1,38 @@
+# The api key, secret key, and canvas page name are required to get started
+# Tunnel configuration is only needed if you are going to use the facebooker:tunnel Rake tasks
+# Your callback url in Facebook should be set to http://public_host:public_port
+
+development:
+  api_key: e34ec276c93b8b443fd15691c57908c5
+  secret_key: 14d51082e7c88a23f86b458017abd912
+  canvas_page_name: mangino
+  callback_url: http://web1.tunnlr.com:10103
+  api: new
+  tunnel:
+    public_host_username: mmangino
+    public_host: cab.elevatedrails.com
+    public_port: 3002
+    local_port: 3000
+
+
+test:
+  api_key: e34ec276c93b8b443fd15691c57908c5
+  secret_key: 14d51082e7c88a23f86b458017abd912
+  canvas_page_name: mangino
+  callback_url: http://cab.elevatedrails.com:3002
+  tunnel:
+    public_host_username: 
+    public_host: 
+    public_port: 4007
+    local_port: 3000
+
+production:
+  api_key: 
+  secret_key: 
+  canvas_page_name: 
+  callback_url:  
+  tunnel:
+    public_host_username: 
+    public_host: 
+    public_port: 4007
+    local_port: 3000

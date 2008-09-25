@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/Bookshelf/!svn/ver/40341/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate
+END
+009_add_total_hits_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/009_add_total_hits_to_users.rb
+END
+003_create_moves.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/003_create_moves.rb
+END
+008_add_indexes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/008_add_indexes.rb
+END
+004_create_attacks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/004_create_attacks.rb
+END
+006_create_belts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/006_create_belts.rb
+END
+011_add_nickname_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/011_add_nickname_to_users.rb
+END
+001_add_session_table.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/001_add_session_table.rb
+END
+007_add_sensei_id_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/007_add_sensei_id_to_users.rb
+END
+002_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/Bookshelf/!svn/ver/40341/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/002_create_users.rb
+END
+010_create_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/010_create_comments.rb
+END
+011_create_facebook_templates.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Bookshelf/!svn/ver/39478/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/011_create_facebook_templates.rb
+END
+005_add_hit_to_attacks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/migrate/005_add_hit_to_attacks.rb
+END

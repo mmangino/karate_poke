@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/Bookshelf/!svn/ver/40341/titles/MMFACER/Book/code/chapter8/karate_poke/db
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/schema.rb
+END
+test.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/test.sqlite3
+END
+development.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/Bookshelf/!svn/ver/39652/titles/MMFACER/Book/code/chapter8/karate_poke/db/development.sqlite3
+END
+test.sqlite3-journal
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/db/test.sqlite3-journal
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/log
+END
+test.log
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/Bookshelf/!svn/ver/40506/titles/MMFACER/Book/code/chapter8/karate_poke/log/test.log
+END
+development.log
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Bookshelf/!svn/ver/40341/titles/MMFACER/Book/code/chapter8/karate_poke/log/development.log
+END
+production.log
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/log/production.log
+END
+server.log
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/log/server.log
+END

@@ -1,0 +1,16 @@
+***************
+*** 26,31 ****
+            misses << attack
+          end
+        end
+        flash[:notice] = "Your attack resulted in #{hits.size} " +
+          (hits.size==1 ? "hit" : "hits") +
+          " and #{misses.size} "+
+--- 26,32 ----
+            misses << attack
+          end
+        end
++       AttackPublisher.deliver_attack_feed(attack) rescue nil
+        flash[:notice] = "Your attack resulted in #{hits.size} " +
+          (hits.size==1 ? "hit" : "hits") +
+          " and #{misses.size} "+

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker
+END
+model.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/model.rb
+END
+service.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/service.rb
+END
+feed.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/feed.rb
+END
+session.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/session.rb
+END
+version.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/version.rb
+END
+admin.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/admin.rb
+END
+batch_request.rb
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/batch_request.rb
+END
+data.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/data.rb
+END
+server_cache.rb
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/server_cache.rb
+END
+parser.rb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/Bookshelf/!svn/ver/40375/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/lib/facebooker/parser.rb
+END

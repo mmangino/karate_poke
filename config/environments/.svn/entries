@@ -1,0 +1,52 @@
+8
+
+dir
+42225
+https://svn.pragprog.com/Bookshelf/titles/MMFACER/Book/code/chapter8/karate_poke/config/environments
+https://svn.pragprog.com/Bookshelf
+
+
+
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+
+svn:special svn:externals svn:needs-lock
+
+test.rb
+file
+
+
+
+
+2008-04-15T18:52:43.000000Z
+52f12e5741b46cf6d66424dd814ed0c7
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+development.rb
+file
+
+
+
+
+2008-04-15T18:52:43.000000Z
+8c5ce2dc3f5746c5e77ae09d958390b1
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+production.rb
+file
+
+
+
+
+2008-04-15T18:52:43.000000Z
+c1751f53d683b36f8e8d068a8780bc96
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+

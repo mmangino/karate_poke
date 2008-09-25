@@ -1,0 +1,94 @@
+8
+
+dir
+42225
+https://svn.pragprog.com/Bookshelf/titles/MMFACER/Book/code/chapter8/karate_poke/config
+https://svn.pragprog.com/Bookshelf
+
+
+
+2008-08-07T17:24:24.981348Z
+40341
+mike.mangino
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+82263e25-b5eb-0310-b4ec-9460fbaf34b7
+
+facebooker.yml
+file
+
+
+
+
+2008-07-18T18:18:59.000000Z
+8a5c1b8a87f7da2482ea99a2df7c49a3
+2008-07-18T18:16:24.927616Z
+39209
+mike.mangino
+
+routes.rb
+file
+
+
+
+
+2008-08-06T21:53:50.000000Z
+9a17d1a9bbbe46d94cceac2f74849033
+2008-07-25T16:15:38.232947Z
+39655
+mike.mangino
+
+database.yml
+file
+
+
+
+
+2008-04-15T18:52:43.000000Z
+bbef680f98eb4d3e714013b205c6ce3a
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+boot.rb
+file
+
+
+
+
+2008-04-15T18:52:43.000000Z
+62fe46fd028f9df081e4ec9eb85968c0
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+environment.rb
+file
+
+
+
+
+2008-07-22T21:14:49.000000Z
+914c638329bb87c59681c018ba65a10c
+2008-07-22T21:13:21.466134Z
+39471
+mike.mangino
+
+initializers
+dir
+
+environments
+dir
+

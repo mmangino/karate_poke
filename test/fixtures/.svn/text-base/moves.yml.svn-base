@@ -1,0 +1,26 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+chop:
+  id: 1
+  name: karate chop
+  image_name: chop.jpg
+  difficulty_level: 1
+headbutt:
+  id: 2
+  name: headbutt
+  image_name: headbutt.jpg
+  difficulty_level: 1
+star:
+  id: 3
+  name: throwing star
+  image_name: ninja_star.jpg
+  difficulty_level: 2
+nunchuck:
+  id: 4
+  name: nunchuck
+  image_name: nunchuck.jpg
+  difficulty_level: 3
+crane_kick:
+  id: 5
+  name: crane kick
+  image_name: crane_kick.jpg
+  difficulty_level: 4

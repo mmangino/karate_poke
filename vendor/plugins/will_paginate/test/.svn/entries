@@ -1,0 +1,107 @@
+8
+
+dir
+42225
+https://svn.pragprog.com/Bookshelf/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test
+https://svn.pragprog.com/Bookshelf
+
+
+
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+
+svn:special svn:externals svn:needs-lock
+
+helper.rb
+file
+
+
+
+
+2008-04-15T18:52:44.000000Z
+aaacb2b9fc860fc6dd9ff9006557c19a
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+console
+file
+
+
+
+
+2008-04-15T18:52:44.000000Z
+b08ec7897386c99bddf965a030799321
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+has-props
+
+database.yml
+file
+
+
+
+
+2008-04-15T18:52:44.000000Z
+02e261adbf5b7686119be609529c8272
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+boot.rb
+file
+
+
+
+
+2008-04-15T18:52:44.000000Z
+7eba7c18e99d7497258c5c84a177ac58
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+lib
+dir
+
+array_pagination_test.rb
+file
+
+
+
+
+2008-04-15T18:52:44.000000Z
+581cf1454fa8c57c820904df2ae9307c
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+finder_test.rb
+file
+
+
+
+
+2008-04-15T18:52:44.000000Z
+29d7419d95a030c4a5de63c87ae02d0d
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+
+fixtures
+dir
+
+pagination_test.rb
+file
+
+
+
+
+2008-04-15T18:52:44.000000Z
+5739a5f4e9cafca23b0d3cf7fb451b72
+2008-04-15T19:09:19.295733Z
+33693
+mike.mangino
+

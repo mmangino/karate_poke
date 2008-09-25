@@ -1,0 +1,23 @@
+***************
+*** 57,69 ****
+    end
+  	# END:AVAILABLE_MOVES
+  	
+- 	
+- 	# START:TOTAL_HITS
+- 	def total_hits
+- 	  attacks.count(:conditions=>{:hit=>true})
+- 	end
+- 	# END:TOTAL_HITS
+- 	
+  	# START:DISCIPLES
+    def friends_with_senseis(friends_facebook_ids)
+  	  User.find(:all, 
+--- 57,63 ----
+    end
+  	# END:AVAILABLE_MOVES
+  	
++ 		
+  	# START:DISCIPLES
+    def friends_with_senseis(friends_facebook_ids)
+  	  User.find(:all, 

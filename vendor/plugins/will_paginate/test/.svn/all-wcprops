@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test
+END
+helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test/helper.rb
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test/console
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test/database.yml
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test/boot.rb
+END
+array_pagination_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test/array_pagination_test.rb
+END
+finder_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test/finder_test.rb
+END
+pagination_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/Bookshelf/!svn/ver/33693/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/will_paginate/test/pagination_test.rb
+END
