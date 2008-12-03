@@ -87,6 +87,9 @@ module Facebooker
     #
     # Publisher makes many helpers available, including the linking and asset helpers
     class Publisher
+      def initialize
+        @controller = PublisherController.new        
+      end
       class FacebookTemplate < ::ActiveRecord::Base
         
         
@@ -398,8 +401,6 @@ module Facebooker
       end
       ActionController::Routing::Routes.named_routes.install(self.master_helper_module)
       include self.master_helper_module
-      # Publisher is the controller, it should do the rewriting
-      include ActionController::UrlWriter
       class <<self
         
         def register_all_templates
@@ -470,6 +471,17 @@ module Facebooker
         end
     
       end
+      # implement the bits of functionality we need out of a controller object
+      class PublisherController
+        include Facebooker::Rails::Publisher.master_helper_module
+        include ActionController::UrlWriter
+        
+        def self.default_url_options(*args)
+          Facebooker::Rails::Publisher.default_url_options(*args)
+        end
+        
+      end
+      
     end
   end
 end

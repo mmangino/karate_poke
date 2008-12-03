@@ -9,9 +9,9 @@ development:
   callback_url: http://web1.tunnlr.com:10103
   api: new
   tunnel:
-    public_host_username: mmangino
-    public_host: cab.elevatedrails.com
-    public_port: 3002
+    public_host_username: tunnlr7
+    public_host: ssh1.tunnlr.com
+    public_port: 10103
     local_port: 3000
 
 
