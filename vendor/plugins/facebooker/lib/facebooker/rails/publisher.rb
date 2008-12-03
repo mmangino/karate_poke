@@ -4,20 +4,12 @@ module Facebooker
     # 
     # To use, create a subclass and define methods
     # Each method should start by calling send_as to specify the type of message
-    # Valid options are :action, :templatized_action, :story, :email and :notification
+    # Valid options are  :email and :notification, :user_action, :profile, :ref
     # 
     #
     # Below is an example of each type
     #
     #   class TestPublisher < Facebooker::Rails::Publisher
-    #     # Action is published using the session of the from user
-    #     def action(f)
-    #       send_as :action
-    #       from f
-    #       title "Action Title"
-    #       body "Body FBML here #{fb_name(f)} #{link_to "text",new_invitation_url}"
-    #     end
-    #
     #     # The new message templates are supported as well
     #     # First, create a method that contains your templates:
     #     # You may include multiple one line story templates and short story templates
@@ -34,6 +26,7 @@ module Facebooker
     #       short_story_template "{*actor*} has a title {*friend*}", render(:partial=>"short_body")
     #       short_story_template "{*actor*} has a title", render(:partial=>"short_body")
     #       full_story_template "{*actor*} has a title {*friend*}", render(:partial=>"full_body")    
+    #       action_links action_link("My text {*template_var*}","{*link_url*}")
     #     end
     #
     #     # To send a registered template, you need to create a method to set the data
@@ -44,19 +37,6 @@ module Facebooker
     #       data :friend=>"Mike"
     #     end
     #   
-    #     # Templatized Action uses From
-    #     def templatized_action(f)
-    #       send_as :templatized_action
-    #       from f
-    #       title_template "Templatized Action Title {name}"
-    #       title_data :name=>"Mike"
-    #     end
-    #     # story is published to the story of the to user
-    #     def story(to)
-    #       send_as :story
-    #       recipients to
-    #       title 'Story Title'
-    #     end
     #  
     #     # Provide a from user to send a general notification
     #     # if from is nil, this will send an announcement
@@ -107,21 +87,89 @@ module Facebooker
     #
     # Publisher makes many helpers available, including the linking and asset helpers
     class Publisher
-      
       class FacebookTemplate < ::ActiveRecord::Base
-        def self.register(t_id,name)
-          t=find_or_initialize_by_template_name(name)
-          t.update_attribute(:bundle_id,t_id)
-          t
+        
+        
+        cattr_accessor :template_cache
+        self.template_cache = {}
+        
+        def self.inspect(*args)
+          "FacebookTemplate"
         end
-
-        def self.for(name)
-          find_by_template_name(name).bundle_id rescue nil
+        
+        def template_changed?(hash)
+          if respond_to?(:content_hash)
+            content_hash != hash 
+          else
+            false
+          end
+        end
+        
+        class << self
+          
+          def register(klass,method)
+            publisher = setup_publisher(klass,method)            
+            template_id = Facebooker::Session.create.register_template_bundle(publisher.one_line_story_templates,publisher.short_story_templates,publisher.full_story_template,publisher.action_links)
+            template = find_or_initialize_by_template_name(template_name(klass,method))
+            template.bundle_id = template_id
+            template.content_hash = hashed_content(klass,method) if template.respond_to?(:content_hash)
+            template.save!
+            cache(klass,method,template)
+            template
+          end
+          
+          def for_class_and_method(klass,method)
+            find_cached(klass,method) 
+          end
+          def bundle_id_for_class_and_method(klass,method)
+            for_class_and_method(klass,method).bundle_id
+          end
+          
+          def cache(klass,method,template)
+            template_cache[template_name(klass,method)] = template
+          end
+          
+          def clear_cache!
+            self.template_cache = {}
+          end
+          
+          def find_cached(klass,method)
+            template_cache[template_name(klass,method)] || find_in_db(klass,method)
+          end
+          
+          def find_in_db(klass,method)
+            template = find_by_template_name(template_name(klass,method))
+            if template and template.template_changed?(hashed_content(klass,method))
+              template.destroy
+              template = nil
+            end
+            
+            if template.nil?
+              template = register(klass,method)
+            end
+            template
+          end
+          
+          def setup_publisher(klass,method)
+            publisher = klass.new
+            publisher.send method + '_template'
+            publisher
+          end
+          
+          def hashed_content(klass, method)
+            publisher = setup_publisher(klass,method)
+            Digest::MD5.hexdigest [publisher.one_line_story_templates, publisher.short_story_templates, publisher.full_story_template].to_json
+          end
+          
+          
+          def template_name(klass,method)
+            "#{klass.name}::#{method}"
+          end
         end
       end
       
       class_inheritable_accessor :master_helper_module
-      attr_accessor :one_line_story_templates, :short_story_templates
+      attr_accessor :one_line_story_templates, :short_story_templates, :action_links
       
       cattr_accessor :skip_registry
       self.skip_registry = false
@@ -157,10 +205,6 @@ module Facebooker
         attr_accessor :template_id
         attr_accessor :template_name
         
-        def template_id
-          @template_id || FacebookTemplate.for(template_name)
-        end
-
         def target_ids=(val)
           @target_ids = val.is_a?(Array) ? val.join(",") : val
         end
@@ -169,8 +213,6 @@ module Facebooker
       
       cattr_accessor :ignore_errors
       attr_accessor :_body
-    
-  
 
       def recipients(*args)
         if args.size==0
@@ -230,6 +272,14 @@ module Facebooker
         @short_story_templates << params.merge(:template_title=>title, :template_body=>body)
       end
       
+      def action_links(*links)
+        if links.blank?
+          @action_links
+        else
+          @action_links = links
+        end
+      end
+      
       def method_missing(name,*args)
         if args.size==1 and self._body.respond_to?("#{name}=")
           self._body.send("#{name}=",*args)
@@ -240,8 +290,12 @@ module Facebooker
         end
       end
       
-      def image(src,url)
-        {:src=>image_path(src),:href=>url}
+      def image(src,target)
+        {:src=>image_path(src),:href=> target.respond_to?(:to_str) ? target : url_for(target)}
+      end
+      
+      def action_link(text,target)
+        {:text=>text, :href=>target}
       end
   
       def requires_from_user?(from,body)
@@ -288,7 +342,7 @@ module Facebooker
         when Ref
           Facebooker::Session.create.server_cache.set_ref_handle(_body.handle,_body.fbml)
         when UserAction
-          @from.session.publish_user_action(_body.template_id || FacebookTemplate.for(method) ,_body.data,_body.target_ids,_body.body_general)
+          @from.session.publish_user_action(_body.template_id,_body.data||{},_body.target_ids,_body.body_general)
         else
           raise UnspecifiedBodyType.new("You must specify a valid send_as")
         end
@@ -358,18 +412,15 @@ module Facebooker
         end
         
         def method_missing(name,*args)
-          should_send=false
-          method=""
-          if md=/^create_(.*)$/.match(name.to_s)
-            method=md[1]
-          elsif md=/^deliver_(.*)$/.match(name.to_s)
-            method=md[1]
-            should_send=true
-          elsif md=/^register_(.*)$/.match(name.to_s)
-            (publisher=new).send(md[1]+"_template")
-            template_id = Facebooker::Session.create.register_template_bundle(publisher.one_line_story_templates,publisher.short_story_templates,publisher.full_story_template)
-            FacebookTemplate.register(template_id,md[1]) unless skip_registry
-            return template_id
+          should_send = false
+          method = ''
+          if md = /^create_(.*)$/.match(name.to_s)
+            method = md[1]
+          elsif md = /^deliver_(.*)$/.match(name.to_s)
+            method = md[1]
+            should_send = true            
+          elsif md = /^register_(.*)$/.match(name.to_s)
+            return FacebookTemplate.register(self, md[1])
           else
             super
           end
@@ -378,7 +429,8 @@ module Facebooker
           (publisher=new).send(method,*args)
           case publisher._body
           when UserAction
-            publisher._body.template_name=method
+            publisher._body.template_name = method
+            publisher._body.template_id = FacebookTemplate.bundle_id_for_class_and_method(self,method)
           end
           
           should_send ? publisher.send_message(method) : publisher._body
@@ -412,8 +464,9 @@ module Facebooker
         def inherited(child)
           super          
           child.master_helper_module=Module.new
-          child.master_helper_module.send!(:include,self.master_helper_module)
-          child.send(:include, child.master_helper_module)      
+          child.master_helper_module.__send__(:include,self.master_helper_module)
+          child.send(:include, child.master_helper_module)
+          FacebookTemplate.clear_cache!
         end
     
       end

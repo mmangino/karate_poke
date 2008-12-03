@@ -209,7 +209,29 @@ module Facebooker
         end
       end
     end
-    
+
+    def users_standard(user_ids, fields=[])
+      post("facebook.users.getStandardInfo",:uids=>user_ids.join(","),:fields=>User.user_fields(fields)) do |users|
+        users.map { |u| User.new(u)}
+      end
+    end
+
+    def users(user_ids, fields=[])
+      post("facebook.users.getInfo",:uids=>user_ids.join(","),:fields=>User.standard_fields(fields)) do |users|
+        users.map { |u| User.new(u)}
+      end
+    end
+
+    def pages(options = {})
+      raise ArgumentError, 'fields option is mandatory' unless options.has_key?(:fields)
+      @pages ||= {}
+      @pages[options] ||= post('facebook.pages.getInfo', options) do |response|
+        response.map do |hash|
+          Page.from_hash(hash)
+        end
+      end
+    end
+
     #
     # Returns a proxy object for handling calls to Facebook cached items
     # such as images and FBML ref handles
@@ -237,10 +259,10 @@ module Facebooker
       uids1 = []
       uids2 = []
       array_of_pairs_of_users.each do |pair|
-        uids1 = pair.first
-        uids2 = pair.last
+        uids1 << pair.first
+        uids2 << pair.last
       end
-      post('facebook.friends.areFriends', :uids1 => uids1, :uids2 => uids2)
+      post('facebook.friends.areFriends', :uids1 => uids1.join(','), :uids2 => uids2.join(','))
     end
     
     def get_photos(pids = nil, subj_id = nil,  aid = nil)
@@ -282,10 +304,10 @@ module Facebooker
       if email_fbml
         params[:email] = email_fbml
       end
-      params[:type]="general"
+      params[:type]="user_to_user"
       # if there is no uid, this is an announcement
       unless uid?
-        params[:type]="announcement"
+        params[:type]="app_to_user"
       end
       
       post 'facebook.notifications.send', params,uid?
@@ -294,13 +316,15 @@ module Facebooker
     ##
     # Register a template bundle with Facebook.
     # returns the template id to use to send using this template
-    def register_template_bundle(one_line_story_templates,short_story_templates=nil,full_story_template=nil)
-
+    def register_template_bundle(one_line_story_templates,short_story_templates=nil,full_story_template=nil, action_links=nil)
       if !one_line_story_templates.is_a?(Array)
         one_line_story_templates = [one_line_story_templates]
       end
       parameters = {:one_line_story_templates=>one_line_story_templates.to_json}
-
+      
+      if !action_links.blank?
+        parameters[:action_links] = action_links.to_json
+      end
       
       if !short_story_templates.blank?
         short_story_templates = [short_story_templates] unless short_story_templates.is_a?(Array)
@@ -376,7 +400,7 @@ module Facebooker
         secret
       end
       
-      def post(method, params = {})
+      def post(method, params = {},use_session=false)
         if method == 'facebook.profile.getFBML' || method == 'facebook.profile.setFBML'
           raise NonSessionUser.new("User #{@uid} is not the logged in user.") unless @uid == params[:uid]
         end
@@ -394,7 +418,7 @@ module Facebooker
     
     def add_to_batch(req,&proc)
       batch_request = BatchRequest.new(req,proc)
-      @batch_queue<<batch_request
+      Thread.current[:facebooker_current_batch_queue]<<batch_request
       batch_request
     end
     
@@ -435,34 +459,46 @@ module Facebooker
     #
     def batch(serial_only=false)
       @batch_request=true
-      @batch_queue=[]
+      Thread.current[:facebooker_current_batch_queue]=[]
       yield
       # Set the batch request to false so that post will execute the batch job
       @batch_request=false
-      BatchRun.current_batch=@batch_queue
-      post("facebook.batch.run",:method_feed=>@batch_queue.map{|q| q.uri}.to_json,:serial_only=>serial_only.to_s)
+      BatchRun.current_batch=Thread.current[:facebooker_current_batch_queue]
+      post("facebook.batch.run",:method_feed=>BatchRun.current_batch.map{|q| q.uri}.to_json,:serial_only=>serial_only.to_s)
     ensure
       @batch_request=false
       BatchRun.current_batch=nil
     end
     
-    def post(method, params = {},use_session_key=true,&proc)
+    def post_without_logging(method, params = {}, use_session_key = true, &proc)
       add_facebook_params(params, method)
       use_session_key && @session_key && params[:session_key] ||= @session_key
       final_params=params.merge(:sig => signature_for(params))
       if batch_request?
         add_to_batch(final_params,&proc)
       else
-        result=service.post(final_params)
+        result = service.post(final_params)
         result = yield result if block_given?
         result
       end
     end
     
+    def post(method, params = {}, use_session_key = true, &proc)
+      if batch_request?
+        post_without_logging(method, params, use_session_key, &proc)
+      else
+        Logging.log_fb_api(method, params) do
+          post_without_logging(method, params, use_session_key, &proc)
+        end
+      end
+    end
+    
     def post_file(method, params = {})
-      add_facebook_params(params, method)
-      @session_key && params[:session_key] ||= @session_key
-      service.post_file(params.merge(:sig => signature_for(params.reject{|key, value| key.nil?})))
+      Logging.log_fb_api(method, params) do
+        add_facebook_params(params, method)
+        @session_key && params[:session_key] ||= @session_key
+        service.post_file(params.merge(:sig => signature_for(params.reject{|key, value| key.nil?})))
+      end
     end
     
     

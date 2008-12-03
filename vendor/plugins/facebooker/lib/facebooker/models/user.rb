@@ -9,9 +9,10 @@ module Facebooker
     include Model
     class Status
       include Model
-      attr_accessor :message, :time
+      attr_accessor :message, :time, :status_id
     end
     FIELDS = [:status, :political, :pic_small, :name, :quotes, :is_app_user, :tv, :profile_update_time, :meeting_sex, :hs_info, :timezone, :relationship_status, :hometown_location, :about_me, :wall_count, :significant_other_id, :pic_big, :music, :uid, :work_history, :sex, :religion, :notes_count, :activities, :pic_square, :movies, :has_added_app, :education_history, :birthday, :first_name, :meeting_for, :last_name, :interests, :current_location, :pic, :books, :affiliations]
+    STANDARD_FIELDS = [:uid, :first_name, :last_name, :name, :timezone, :birthday, :sex, :affiliations, :locale, :profile_url]
     attr_accessor :id, :session
     populating_attr_accessor *FIELDS
     attr_reader :affiliations
@@ -36,7 +37,7 @@ module Facebooker
       end
       if args.last.kind_of?(Hash)
         populate_from_hash!(args.pop)
-      end      
+      end     
     end
 
     # Returns a user's events, params correspond to API call parameters (except UID):
@@ -200,7 +201,7 @@ module Facebooker
       parameters[:profile_action] = profile_action_fbml if profile_action_fbml
       parameters[:mobile_profile] = mobile_fbml if mobile_fbml
       parameters[:profile_main] = profile_main if profile_main
-      session.post('facebook.profile.setFBML', parameters)
+      session.post('facebook.profile.setFBML', parameters,false)
     end
     
     ## ** NEW PROFILE DESIGN ***
@@ -280,7 +281,6 @@ module Facebooker
       users=users.map do |h|
         returning h.dup do |d|
           if email=d.delete(:email)
-            user_map
             hash = hash_email(email)
             user_map[hash]=h
             d[:email_hash]=hash
@@ -315,13 +315,29 @@ module Facebooker
       end
     end
     
+    def facebook_id
+      @id
+    end
+    
+    def self.user_fields(fields = [])
+      valid_fields(fields)
+    end
+    
+    def self.standard_fields(fields = [])
+      valid_fields(fields,STANDARD_FIELDS)
+    end
+    
     private
     def publish(feed_story_or_action)
       session.post(Facebooker::Feed::METHODS[feed_story_or_action.class.name.split(/::/).last], feed_story_or_action.to_params) == "1" ? true : false
     end
     
-    def collect(fields)
-      FIELDS.reject{|field_name| !fields.empty? && !fields.include?(field_name)}.join(',')
+    def self.valid_fields(fields, allowable=FIELDS)
+      allowable.reject{|field_name| !fields.empty? && !fields.include?(field_name)}.join(',')
+    end
+    
+    def collect(fields, allowable=FIELDS)
+      allowable.reject{|field_name| !fields.empty? && !fields.include?(field_name)}.join(',')
     end
     
     def profile_pic_album_id

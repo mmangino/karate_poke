@@ -49,11 +49,11 @@ module Facebooker
       #    Send a poke to: <%= fb_friend_selector %> <br />
       #    <%= fb_request_form_submit %>
       #  <% end %>
-      def fb_request_form(type,message_param,url,&block)
+      def fb_request_form(type,message_param,url,options={},&block)
         content = capture(&block)
         message = @template.instance_variable_get("@content_for_#{message_param}") 
         concat(content_tag("fb:request-form", content + token_tag,
-                  {:action=>url,:method=>"post",:invite=>true,:type=>type,:content=>message}),
+                  {:action=>url,:method=>"post",:invite=>true,:type=>type,:content=>message}.merge(options)),
               block.binding)
       end
 
@@ -283,7 +283,7 @@ module Facebooker
       VALID_FB_SHARED_PHOTO_SIZES = [:thumb, :small, :normal, :square]
       VALID_FB_PHOTO_SIZES = VALID_FB_SHARED_PHOTO_SIZES      
       VALID_FB_PROFILE_PIC_SIZES = VALID_FB_SHARED_PHOTO_SIZES
-      VALID_PERMISSIONS=[:email, :offline_access, :status_update, :photo_upload, :create_listing]
+      VALID_PERMISSIONS=[:email, :offline_access, :status_update, :photo_upload, :create_listing, :create_event, :rsvp_event, :sms]
       
       # Render an fb:tabs tag containing some number of fb:tab_item tags.
       # Example:
@@ -467,10 +467,11 @@ module Facebooker
       # 			  Hey you haven't agreed to our terms.  <%= link_to("Please accept our terms of service.", :action => "terms_of_service") %>
       # 			<% end %>
       #<% end %>       
-      def fb_if_is_app_user(user,options={},&proc)
+      def fb_if_is_app_user(user=nil,options={},&proc)
         content = capture(&proc) 
         options = options.dup
-        concat(content_tag("fb:if-is-app-user",content,stringify_vals(options.merge(:uid=>cast_to_facebook_id(user)))),proc.binding)
+        options.merge!(:uid=>cast_to_facebook_id(user)) if user
+        concat(content_tag("fb:if-is-app-user",content,stringify_vals(options)),proc.binding)
       end
 
       # Render if-user-has-added-app tag
@@ -517,7 +518,7 @@ module Facebooker
       #
       # Return the URL for the about page of the application
       def fb_about_url
-        "http://www.facebook.com/apps/application.php?api_key=#{Facebooker.api_key}"
+        "http://#{Facebooker.www_server_base_url}/apps/application.php?api_key=#{Facebooker.api_key}"
       end
       
       #

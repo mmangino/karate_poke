@@ -1,178 +1,0 @@
-8
-
-dir
-42225
-https://svn.pragprog.com/Bookshelf/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker
-https://svn.pragprog.com/Bookshelf
-
-
-
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-
-svn:special svn:externals svn:needs-lock
-
-test
-dir
-
-History.txt
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-01bea0eedbda7d3da611f2ea5cbaae2b
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-Rakefile
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-f19a074efa5d6ceb52c7750fd4c2cb70
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-TODO.txt
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-2cef21789f07f3a619ba85d7b5f1383f
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-Manifest.txt
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-4b69de5929c8408fd1080a7dc84775e2
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-javascripts
-dir
-
-README
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-8195b5419f68ca9682503c5345593139
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-templates
-dir
-
-facebooker.yml.tpl
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-5a313eece350bf641ccf0018f18b9377
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-setup.rb
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-f3e96d4b9eeb3d0c4d841c7c7ea6259c
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-CHANGELOG.txt
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-d41d8cd98f00b204e9800998ecf8427e
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-init.rb
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-8ca8d123f38138e8a1901b8016d7b443
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-lib
-dir
-
-COPYING
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-97eb11c9051b98bbcedffb37db2a03b5
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-install.rb
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-62ce4a9552395762e5a01c7515a3c309
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-generators
-dir
-
-README.txt
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-12b5731a59f8f2ea0e90b6eec41e5979
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-examples
-dir
-

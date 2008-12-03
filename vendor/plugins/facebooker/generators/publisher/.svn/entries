@@ -1,31 +1,0 @@
-8
-
-dir
-42225
-https://svn.pragprog.com/Bookshelf/titles/MMFACER/Book/code/chapter8/karate_poke/vendor/plugins/facebooker/generators/publisher
-https://svn.pragprog.com/Bookshelf
-
-
-
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-
-svn:special svn:externals svn:needs-lock
-
-publisher_generator.rb
-file
-
-
-
-
-2008-08-07T15:28:34.000000Z
-fb7b78a55a497c1c49db36724d2e7193
-2008-08-08T13:35:39.363646Z
-40375
-mike.mangino
-
-templates
-dir
-
