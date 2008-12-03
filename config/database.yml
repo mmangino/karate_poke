@@ -18,5 +18,5 @@ production:
   database: karate_poke_production
   username: karate_poke
   password: b00ks4l3s
-  host: mingus.elevatedrails.com
+  host: billie.elevatedrails.com
 
