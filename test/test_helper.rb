@@ -1,5 +1,6 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+require 'flexmock/test_unit'
 require 'test_help'
 
 class ActiveSupport::TestCase

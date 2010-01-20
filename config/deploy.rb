@@ -21,9 +21,9 @@ namespace :deploy do
       update_code
       web.disable
       copy_database_yml
+      copy_facebooker_yml
       symlink
       migrate
-      copy_facebooker_yml
     end
 
     restart
@@ -40,3 +40,9 @@ task :copy_database_yml, :roles =>:web do
   run "cp #{shared_path}/database.yml #{release_path}/config/"
 end
 
+namespace :deploy do
+  desc "Restart Application"
+  task :restart, :roles => :app do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
